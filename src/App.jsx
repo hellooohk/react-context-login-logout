@@ -1,21 +1,22 @@
-import React, { useState } from 'react'
-import { createContext } from 'react'
-import Login from './Login';
+import React, { useState } from "react";
+import { createContext } from "react";
+import Login from "./Login";
+import NavBar from "./NavBar";
 export const UserContext = createContext();
 const App = () => {
-  const [auth,setAuth] = useState({
+  const [auth, setAuth] = useState({
     isAuthenticated: false,
-    username : "",
+    username: "",
   });
-  const value = {auth,setAuth};
+  const value = { auth, setAuth };
   return (
-
-    <div className="container my-4">
-        <UserContext.Provider value={value}>
-         <Login/>
-        </UserContext.Provider>
+    <div className="my-4">
+      <UserContext.Provider value={value}>
+        <NavBar />
+        <Login />
+      </UserContext.Provider>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
